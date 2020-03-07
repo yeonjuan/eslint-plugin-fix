@@ -10,7 +10,7 @@
   "author": "YeonJuAn",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests --recursive",
+    "test": "nyc mocha tests --recursive",
     "lint": "npx eslint **/*.js",
     "lint:fix": "npx eslint **/*.js --fix"
   },
@@ -18,12 +18,21 @@
     "eslint-rule-composer": "^0.3.0",
     "requireindex": "~1.1.0"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsdoc": "^22.0.0",
-    "mocha": "^3.1.2"
+    "husky": "^4.2.3",
+    "mocha": "^3.1.2",
+    "nyc": "^15.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
