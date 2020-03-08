@@ -1,6 +1,6 @@
 import utils from '../utils';
 import { Problem } from 'eslint-rule-composer';
-import { Node } from 'estree';
+import { isExpressionStatement } from '../ast-utils';
 
 /**
  * Map the non-fixable problem to fixable problem.
@@ -12,14 +12,14 @@ function mapReport(problem: Problem): Problem {
   return utils.extendsProblem(problem, {
     fix(fixer) {
       const { node } = problem;
-      return fixer.remove(node.parent as Node);
+      return isExpressionStatement(node.parent) ? fixer.remove(node.parent): null;
     },
   });
 }
 
 export default utils.filterMapBaseRule(
   'no-alert',
-  ({node}) => node.parent.type === "ExpressionStatement",
+  ({node}) => isExpressionStatement(node?.parent),
   mapReport,
   'code',
 );

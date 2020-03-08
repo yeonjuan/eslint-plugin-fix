@@ -1,6 +1,5 @@
 import utils from '../utils';
 import { Problem } from 'eslint-rule-composer';
-import { Node } from 'estree';
 
 /**
  * Map the non-fixable problem to fixable problem.
@@ -12,7 +11,7 @@ function mapReport(problem: Problem): Problem {
   return utils.extendsProblem(problem, {
     fix(fixer) {
       const { node } = problem;
-      return fixer.remove(node as Node);
+      return fixer.remove(node);
     },
   });
 }
