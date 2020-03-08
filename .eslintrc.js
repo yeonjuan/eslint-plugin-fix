@@ -1,25 +1,32 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
-    commonjs: true,
     es6: true,
   },
   extends: [
-    'airbnb-base',
-    'plugin:jsdoc/recommended'
-  ],
-  plugins: [
-    "jsdoc"
+    'plugin:jsdoc/recommended',
+    "plugin:@typescript-eslint/recommended"
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
+    sourceType: 'module',
   },
+  plugins: [
+    '@typescript-eslint',
+    'jsdoc'
+  ],
   rules: {
-    "import/no-extraneous-dependencies": "off"
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off"
   },
+  settings: {
+    jsdoc: {
+      node: "typescript"
+    }
+  }
 };

@@ -1,8 +1,3 @@
-/**
- * @file no-debugger
- * @author YeonJuAn
- */
-
 import { RuleTester } from 'eslint';
 import rule from '../../../lib/rules/no-debugger';
 

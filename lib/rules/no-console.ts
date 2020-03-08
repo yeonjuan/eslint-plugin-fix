@@ -1,13 +1,14 @@
-/**
- * @file fix no-console
- * @author YeonJuAn
- */
-
 import utils from '../utils';
 import { Problem } from 'eslint-rule-composer';
 import { Node } from 'estree';
 
-function mapReport(problem: Problem) {
+/**
+ * Map the non-fixable problem to fixable problem.
+ * 
+ * @param   problem A problem reported from eslint base rule.
+ * @returns A Fixable problem
+ */
+function mapReport(problem: Problem): Problem {
   return utils.extendsProblem(problem, {
     fix(fixer) {
       const { node } = problem;

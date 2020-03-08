@@ -10,26 +10,38 @@
 import { RuleTester } from 'eslint';
 import rule from '../../../lib/rules/no-console';
 
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const ruleTester = new RuleTester();
 const error = { message: 'I can fix it', type: 'MemberExpression' };
+
+export const limitation = [
+  { code: "foo = console.log('bar');"},
+  { code: "foo(console.log('bar'));" },
+  { code: "console.log('foo') + bar;" },
+  { code: "foo = console.warn('bar');" },
+  { code: "foo(console.warn(bar));" },
+  { code: "console.warn('foo') + bar;" },
+];
+
+export const fixables = [
+  {
+    code: "console.log('a')",
+    output: '',
+    errors: [error],
+  },
+  {
+    code: `
+function foo() {
+  console.log('bar')
+}`,
+    output: `
+function foo() {
+  
+}`,
+    errors: [error],
+  },
+]
+
 ruleTester.run('no-console', rule, {
-  valid: [
-    { code: "a = console.log('a');" },
-    { code: "foo(console.log('a'));" },
-    { code: "console.log('a') + 1;" },
-    { code: "a = console.warn('a');" },
-    { code: "foo(console.warn('a'));" },
-    { code: "console.warn('a') + 1;" },
-  ],
-  invalid: [
-    {
-      code: "console.log('a')",
-      output: '',
-      errors: [error],
-    },
-  ],
+  valid: limitation,
+  invalid: fixables,
 });

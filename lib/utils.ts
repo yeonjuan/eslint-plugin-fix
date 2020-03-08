@@ -9,6 +9,14 @@ import {
 
 const rules = new eslint.Linter().getRules();
 
+/**
+ * Map eslint base rule to new one.
+ * 
+ * @param id Id of the base rule.
+ * @param map Mapping function.
+ * @param fixType Fix type.
+ * @returns Rule
+ */
 function mapBaseRule(
   id: string,
   map: Predicate<Problem>,
@@ -21,6 +29,14 @@ function mapBaseRule(
   return rule;
 }
 
+/**
+ * Filter from eslint base rules
+ * 
+ * @param id ID of the base rule.
+ * @param filter Filtering function.
+ * @param fixType Fix type.
+ * @returns Rule
+ */
 function filterBaseRule(
   id: string,
   filter: Predicate<boolean>,
@@ -33,12 +49,21 @@ function filterBaseRule(
   return rule;
 }
 
+/**
+ * Filtering & Mapping eslint base rules.
+ * 
+ * @param id ID of the base rule.
+ * @param filter Filtering function.
+ * @param map Mapping function.
+ * @param fixType Fix type
+ * @returns Rule
+ */
 function filterMapBaseRule(
   id: string,
   filter: Predicate<boolean>,
   map: Predicate<Problem>,
   fixType: FixType = 'code'
-) {
+): Rule.RuleModule {
   const rule = mapReports(
     filterReports(rules.get(id) as Rule.RuleModule, filter),
     map,
@@ -49,6 +74,13 @@ function filterMapBaseRule(
   return rule;
 }
 
+/**
+ * Extends the problem.
+ * 
+ * @param problem The origin problem.
+ * @param properties The new properties.
+ * @returns Extended problem from.
+ */
 function extendsProblem(
   problem: Problem,
   {

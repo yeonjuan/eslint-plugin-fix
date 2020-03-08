@@ -2,28 +2,28 @@ declare module 'eslint-rule-composer' {
   import * as estree from 'estree';
   import * as eslint from 'eslint';
   
-  interface ftNode extends estree.BaseNode {
-    parent: ftNode
+  interface Node extends estree.BaseNode {
+    parent: Node;
   }
 
   interface Problem {
-    node: ftNode
-    message: string
-    messageId: string | null
-    data: object | null
-    loc: eslint.AST.SourceLocation
+    node: Node;
+    message: string;
+    messageId: string | null;
+    data: object | null;
+    loc: eslint.AST.SourceLocation;
     fix?(fixer: eslint.Rule.RuleFixer): null | eslint.Rule.Fix | eslint.Rule.Fix[];
   }
   
   interface Metadata {
-    sourceCode: eslint.SourceCode
-    settings?: object
-    options: any[]
-    filename: string
+    sourceCode: eslint.SourceCode;
+    settings?: object;
+    options: any[];
+    filename: string;
   }
   
   interface Predicate<T> {
-    (problem: Problem, metadata: Metadata): T
+    (problem: Problem, metadata: Metadata): T;
   }
 
   type FixType = 'code' | 'whitespace';

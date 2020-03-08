@@ -5,7 +5,7 @@ import { Node } from 'estree';
 /**
  * Map the non-fixable problem to fixable problem.
  *
- * @param problem The non-fixable problem from base rule.
+ * @param   problem The non-fixable problem from base rule.
  * @returns Fixable Problem
  */
 function mapReport(problem: Problem): Problem {
@@ -17,8 +17,9 @@ function mapReport(problem: Problem): Problem {
   });
 }
 
-export default utils.mapBaseRule(
-  'no-debugger',
+export default utils.filterMapBaseRule(
+  'no-alert',
+  ({node}) => node.parent.type === "ExpressionStatement",
   mapReport,
   'code',
 );
