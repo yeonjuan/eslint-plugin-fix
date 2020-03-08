@@ -44,5 +44,5 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * [fix/no-console](./docs/rules/no-console.md)
-* [fix/no-debugger](./docs/rules/no-console.md)
+* [fix/no-debugger](./docs/rules/no-debugger.md)
 * [fix/no-alert](./docs/rules/no-console.md)

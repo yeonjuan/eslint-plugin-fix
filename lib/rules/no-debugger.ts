@@ -12,7 +12,7 @@ function mapReport(problem: Problem): Problem {
   return utils.extendsProblem(problem, {
     fix(fixer) {
       const { node } = problem;
-      return fixer.remove(node.parent as Node);
+      return fixer.remove(node as Node);
     },
   });
 }

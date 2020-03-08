@@ -12,5 +12,10 @@ ruleTester.run('no-debugger', rule, {
       output: '',
       errors: [error],
     },
+    {
+      code: 'function foo() { debugger }',
+      output: 'function foo() {  }',
+      errors: [error],
+    },
   ],
 });
