@@ -1,8 +1,6 @@
-# Beta
+# eslint-plugin-fix
 
-### eslint-plugin-fix
-
-fix
+Support auto fix for eslint core rule.
 
 ## Installation
 
@@ -45,9 +43,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+* [fix/no-console](./docs/rules/no-console.md)
+* [fix/no-debugger](./docs/rules/no-console.md)
+* [fix/no-alert](./docs/rules/no-console.md)

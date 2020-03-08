@@ -1,36 +1,46 @@
 # fix no-console (no-console)
 
-Please describe the origin of the rule here.
+This rule supports auto fix for the rule [no-console](https://eslint.org/docs/rules/no-console) in eslint.
+
+## Possible to fix
+
+Examples of **possible to fix** code for this rule:
+
+* before
+  ```js
+  console.log('foo')
+
+  function foo() {
+    console.log('bar');
+  }
+  ```
+
+* after fix (`eslint --fix`)
+
+  ```js
 
 
-## Rule Details
+  function foo() {
+  
+  }
+  ```
 
-This rule aims to...
+## Impossible to fix
 
-Examples of **incorrect** code for this rule:
+Examples of **impossible to fix** code for this rule:
 
 ```js
+foo + console.log('foo')
 
-// fill me in
-
+foo(console.log('bar'));
 ```
 
-Examples of **correct** code for this rule:
-
-```js
-
-// fill me in
-
-```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
-
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
+It extends the ESlint base rule `no-console`.
+See [no-console option](https://eslint.org/docs/rules/no-console#options)
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+See [no-console](https://eslint.org/docs/rules/no-console)
