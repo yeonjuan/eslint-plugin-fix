@@ -11,8 +11,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "nyc mocha tests --recursive",
-    "lint": "npx eslint **/*.js",
-    "lint:fix": "npx eslint **/*.js --fix"
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix"
   },
   "dependencies": {
     "eslint-rule-composer": "^0.3.0",
