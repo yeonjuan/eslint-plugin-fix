@@ -1,11 +1,7 @@
 declare module 'eslint-rule-composer' {
-  import * as estree from 'estree';
+  import {Node} from 'ast';
   import * as eslint from 'eslint';
   
-  interface Node extends estree.BaseNode {
-    parent: Node;
-  }
-
   interface Problem {
     node: Node;
     message: string;

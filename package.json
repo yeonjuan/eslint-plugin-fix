@@ -14,7 +14,8 @@
     "test": "mocha --require ts-node/register test/**/*.ts --recursive",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
-    "build:docs": "ts-node script/build-docs"
+    "build:docs": "ts-node script/build-docs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "eslint-rule-composer": "^0.3.0",
@@ -29,7 +30,6 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/eslint": "^6.1.8",
-    "@types/estree": "0.0.42",
     "@types/requireindex": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
