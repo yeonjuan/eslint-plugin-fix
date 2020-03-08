@@ -7,9 +7,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const { RuleTester } = require('eslint');
-const rule = require('../../../lib/rules/no-console');
-
+import { RuleTester } from 'eslint';
+import rule from '../../../lib/rules/no-console';
 
 //------------------------------------------------------------------------------
 // Tests
