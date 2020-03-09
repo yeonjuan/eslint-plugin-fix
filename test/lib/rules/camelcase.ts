@@ -17,5 +17,10 @@ ruleTester.run('camelcase', rule, {
       output: "myFavoriteColor = 5;",
       errors: [error]
     },
+    {
+      code: "var obj = { my_pref: 1 };",
+      output: "var obj = { myPref: 1 };",
+      errors: [error]
+    }
   ],
 });

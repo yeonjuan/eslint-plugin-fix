@@ -46,3 +46,4 @@ Then configure the rules you want to use under the rules section.
 * [fix/no-console](./docs/rules/no-console.md)
 * [fix/no-debugger](./docs/rules/no-debugger.md)
 * [fix/no-alert](./docs/rules/no-alert.md)
+* [fix/camelcase](./docs/rules/camelcase.md)

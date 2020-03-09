@@ -3,6 +3,12 @@ import { Problem } from 'eslint-rule-composer';
 import { Node, Identifier } from 'ast';
 import { isIdentifier } from '../ast-utils';
 
+/**
+ * Change snake_case to camelCase
+ * 
+ * @param snake snake_case
+ * @returns camelCase
+ */
 function snakeToCamel (snake: string): string {
   return snake.replace(/(\_[a-z])/g, captured => captured.replace('_', '').toUpperCase());
 }
